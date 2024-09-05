@@ -35,15 +35,12 @@ monitor_add() {
 	# Whichever detected monitor is on 2560x1440, should be setup second
 	if [[ $external_monitor1 > $external_monitor2 ]]; then
 	
-		xrandr --output eDP-1 --primary --mode 1920x1080 --rotate normal --output "$monitor2" --mode 1920x1080 --rotate normal --right-of eDP-1
-		xrandr --output eDP-1 --primary --mode 1920x1080 --rotate normal --output "$monitor1" --mode 2560x1440 --rotate normal --above eDP-1
-		#xrandr --output "$monitor1" --mode 2560x1440 --rotate normal --left-of "$monitor2"
+		xrandr --output eDP-1 --primary --mode 1920x1080 --rotate normal --output "$monitor2" --mode 1920x1080 --rotate normal --left-of eDP-1
+		xrandr --output "$monitor1" --mode 2560x1440 --rotate normal --left-of "$monitor2"
 	
 	else
-		xrandr --output eDP-1 --primary --mode 1920x1080 --rotate normal --output "$monitor1" --mode 1920x1080 --rotate normal --right-of eDP-1
-		#xrandr --output eDP-1 --primary --mode 1920x1080 --rotate normal --output "$monitor1" --mode 1920x1080 --rotate normal --left-of eDP-1
-		xrandr --output eDP-1 --primary --mode 1920x1080 --rotate normal --output "$monitor2" --mode 2560x1440 --rotate normal --above eDP-1
-		#xrandr --output eDP-1 --primary --mode 1920x1080 --rotate normal --output "$monitor2" --mode 2560x1440 --rotate normal --left-of "$monitor1"
+		xrandr --output eDP-1 --primary --mode 1920x1080 --rotate normal --output "$monitor1" --mode 1920x1080 --rotate normal --left-of eDP-1
+		xrandr --output eDP-1 --primary --mode 1920x1080 --rotate normal --output "$monitor2" --mode 2560x1440 --rotate normal --left-of "$monitor1"
 	
 	fi
 }
